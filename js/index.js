@@ -68,6 +68,9 @@ function checkCards(firstCard, secondCard) {
             let elapsedTime= (endTime-startTime)/1000;
             let minutes= Math.floor(elapsedTime / 60);
             let seconds= Math.floor(elapsedTime % 60);
+            if(seconds<10){
+                seconds= "0"+seconds;
+            }
             const result= document.querySelector(".result");
             result.innerText= `Moves:${moves}  Time taken:${minutes}:${seconds} (m:s)`;
             result.classList.add("finalResult");

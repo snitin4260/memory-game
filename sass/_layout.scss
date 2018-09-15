@@ -69,4 +69,5 @@ $small-screen: 500px;
 
 .front-face {
     transform: rotateY(180deg);
+    transition: border 0.2s;
 }

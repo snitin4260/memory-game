@@ -25,8 +25,7 @@ let startTime = Date.now();
 })();
 
 function flipcard() {
-
-    
+  
     if (lockboard) return;
     moves++;
     this.classList.toggle("flip");
@@ -48,6 +47,17 @@ function disableListeners(firstCard, secondCard) {
     firstCard.removeEventListener("click", flipcard);
     secondCard.removeEventListener("click", flipcard);
     lockboard = false;
+}
+
+//500s delay to slow down boder
+//or else border applies when the 2nd matched
+//card is immediately turning
+function addMatchDesign(first,second) {
+    setTimeout(() => {
+            first.firstElementChild.style.border = "4px solid green";
+            second.firstElementChild.style.border = "4px solid green";
+        
+    }, 500);
 
 }
 
@@ -75,7 +85,9 @@ function checkCards(firstCard, secondCard) {
             result.innerText= `Moves:${moves}  Time taken:${minutes}:${seconds} (m:s)`;
             result.classList.add("finalResult");
         }
+        
         disableListeners(firstCard, secondCard);
+        addMatchDesign(firstCard, secondCard);
     }
     else {
         unflip(firstCard, secondCard);

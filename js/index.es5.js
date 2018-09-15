@@ -47,6 +47,16 @@ function disableListeners(firstCard, secondCard) {
   firstCard.removeEventListener("click", flipcard);
   secondCard.removeEventListener("click", flipcard);
   lockboard = false;
+} //500s delay to slow down boder
+//or else border applies when the 2nd matched
+//card is immediately turning
+
+
+function addMatchDesign(first, second) {
+  setTimeout(function () {
+    first.firstElementChild.style.border = "4px solid green";
+    second.firstElementChild.style.border = "4px solid green";
+  }, 500);
 }
 
 function unflip(firstCard, secondCard) {
@@ -79,6 +89,7 @@ function checkCards(firstCard, secondCard) {
     }
 
     disableListeners(firstCard, secondCard);
+    addMatchDesign(firstCard, secondCard);
   } else {
     unflip(firstCard, secondCard);
   }

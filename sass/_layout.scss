@@ -1,11 +1,17 @@
+$small-screen: 500px;
 .memory-board {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 640px;
-    height: 640px;
+    height: 100%;
+    max-height: 640px;
     flex-wrap: wrap;
    perspective: 100rem;
+
+    @media (max-width: $small-screen) {
+        align-content: center;
+    }
 }
 
 
@@ -29,10 +35,16 @@
 .memory-card { 
     margin: 0.5rem;
     flex: 0 0 calc(25% - 15px);
-    height: calc(30% - 10px);
+    height: calc(26% - 10px);
     position: relative;
     transition: transform 0.5s;
     transform-style: preserve-3d;
+
+    @media (max-width: $small-screen) {
+        height: calc(22% - 10px);
+        margin-bottom: 1.5rem;
+    }
+
     
 }
 

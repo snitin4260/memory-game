@@ -65,6 +65,10 @@ $small-screen: 500px;
     padding: 2rem;
     backface-visibility: hidden;
     border-radius: 9px;
+
+    @media (max-width: $small-screen) {
+        padding: 0.8rem;
+    }
 }
 
 .front-face {
